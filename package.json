@@ -1,0 +1,15 @@
+{
+  "name": "@customcommander/lib-pn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "customcommander <hello@spinjs.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "test": "tape index.test.js"
+  },
+  "devDependencies": {
+    "tape": "^4.11.0",
+    "testcheck": "^1.0.0-rc.2"
+  }
+}

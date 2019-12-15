@@ -1,0 +1,19 @@
+name: Continuous Integration
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Run tests
+        run: |
+          docker build -t $GITHUB_REPOSITORY:$GITHUB_SHA .
+          docker run --rm --mount type=bind,src=$GITHUB_WORKSPACE,dst=/workspaces/lib-pn $GITHUB_REPOSITORY:$GITHUB_SHA sh -c 'yarn && yarn test'
